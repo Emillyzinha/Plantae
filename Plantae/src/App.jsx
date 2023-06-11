@@ -1,9 +1,9 @@
-import Principal from "./pages/Principal"
+import Principal from './pages/Principal'
 
 function App() {
 
   return (
-    <Principal/>
+   <Principal/>
   )
 }
 

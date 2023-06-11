@@ -12,7 +12,7 @@ const Nav = () => {
                     <div className="w-14 bg-black h-0.5 m-1"></div>
                 </div>
                 <img src={logo} className='w-28 h-10' alt='Logo do Plantae com o nome PLANTAE em capslock e embaixo uma frase: Prezando pelo seu bem-estar' />
-                <img src={reciclagem} className='w-14' alt='Logo do Plantae com o nome PLANTAE em capslock e embaixo uma frase: Prezando pelo seu bem-estar' />
+                <img src={reciclagem} className='w-14' alt='Imgem de três folhaas rodando simbolizando reciclagem' />
             </div>
         </nav>
     )
