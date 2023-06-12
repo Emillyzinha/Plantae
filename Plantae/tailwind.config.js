@@ -17,6 +17,7 @@ export default {
         'borda': '#5B665F',
         'fundo-tela': '#F5F5F5',
         'verde-integrantes': '#5B665F',
+        'cinzaD9': '#D9D9D9',
       }
     },
   },

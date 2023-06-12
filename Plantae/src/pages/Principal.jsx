@@ -14,6 +14,7 @@ import vaso2 from '../assets/vaso2.png'
 import grupo from '../assets/grupo.png'
 import Borda from '../componentes/Borda'
 import reciclagem from '../assets/reciclagem.png'
+import { Link } from 'react-router-dom'
 
 
 function Principal() {
@@ -27,17 +28,17 @@ function Principal() {
         </div>
         <p className="text-5xl text-verde-padrao p-3 mt-8 font-quick">CONHEÇA O ACERVO:</p>
         <div className="w-full flex flex-col p-3 mt-5">
-          <div className="w-full flex flex-row justify-between">
-            <img className="w-[48%]" src={planta1} alt="Uma planta" />
-            <img className="w-[48%]" src={planta2} alt="Uma planta" />
+          <div className="w-full flex flex-row justify-around">
+            <Link to={'/produtos'} > <img className="w-full" src={planta1} alt="Uma planta" /> </Link>
+            <Link to={'/produtos'} > <img className="w-full" src={planta2} alt="Uma planta" /> </Link>
           </div>
-          <div className="w-full flex flex-row justify-between mt-3">
-            <img className="w-[48%]" src={planta3} alt="Uma planta" />
-            <img className="w-[48%]" src={planta4} alt="Uma planta" />
+          <div className="w-full flex flex-row justify-around mt-3">
+            <Link to={'/produtos'} > <img className="w-full" src={planta3} alt="Uma planta" /> </Link>
+            <Link to={'/produtos'} > <img className="w-full" src={planta4} alt="Uma planta" /> </Link>
           </div>
-          <div className="w-full flex flex-row justify-between mt-3">
-            <img className="w-[48%]" src={planta5} alt="Uma planta" />
-            <img className="w-[48%]" src={planta6} alt="Uma planta" />
+          <div className="w-full flex flex-row justify-around mt-3">
+            <Link to={'/produtos'} > <img className="w-full" src={planta5} alt="Uma planta" /> </Link>
+            <Link to={'/produtos'} > <img className="w-full" src={planta6} alt="Uma planta" /> </Link>
           </div>
         </div>
         <Borda />
@@ -59,7 +60,7 @@ function Principal() {
         <img className="p-5" src={grupo} alt="Integrantes da loja Plantae" />
         <Borda />
         <div className="w-full flex flex-row">
-          <div className="">
+          <div className="my-3">
             <div className="p-3">
               <p className='font-galdeano text-[22px] text-verde-integrantes'>Maria Silva - Ana Santos </p>
               <p className='font-galdeano text-[22px] text-verde-integrantes'>Beatriz Oliveira - Juliana Pereira</p>
