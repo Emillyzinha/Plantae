@@ -17,26 +17,12 @@ class ClienteCRUD(viewsets.ModelViewSet):
     serializer_class = ClienteSerializer
     permission_classes = (IsAuthenticated, )
 
-    # para encontrar valor igual aos parâmetros escolhidos. Retornar que o e-mail existe
-    # def get_queryset(self):
-    #     queryset = Cliente.objects.all()
-    #     cpfCliente = self.request.query_params.get('cpf')
-    #     emailCliente = self.request.query_params.get('email')
+class PlantasCRUD(viewsets.ModelViewSet):
+    queryset= Planta.objects.all()
+    serializer_class = PlantaSerializer
+    permission_classes = (IsAuthenticated, )
 
-    #     if cpfCliente is not None:
-    #         queryset = queryset.filter(cpf=cpfCliente)
-    #         return queryset
-        
-    #     if emailCliente is not None:
-    #         queryset = queryset.filter(email=emailCliente)
-    #         return queryset
-        
-    #     return super().get_queryset()
-
-    def list(self, request, *args, **kwargs):
-
-        return super().list(request, *args, **kwargs)
-    
-    def create(self, request, *args, **kwargs):
-
-        return super().create(request, *args, **kwargs)
+class BlogCRUD(viewsets.ModelViewSet):
+    queryset= Blog.objects.all()
+    serializer_class = BlogSerializer
+    permission_classes = (IsAuthenticated, )

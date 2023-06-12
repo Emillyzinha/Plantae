@@ -16,16 +16,22 @@ class Cliente(AbstractUser):
     nomeCompleto = models.CharField(max_length=255, blank=False)
     data_nascimento = models.DateField(blank=False)
     cpf = models.CharField(max_length=14, blank=False, unique=True)
-    numero_telefone = models.CharField(max_length=20, blank=False)
+    numero_telefone = models.CharField(max_length=20, blank=False, unique=True)
     email = models.EmailField(unique=True, blank=False)
 
     USERNAME_FIELD = "email"
-    REQUIRED_FIELDS = ["nomeCompleto", "username", "data_nascimento", "numero_telefone", "email", "password"]
+    REQUIRED_FIELDS = ["nomeCompleto", "username", 'cpf',  "data_nascimento", "numero_telefone", "password"]
 
-class Plantas(models.Model):
-    nome = models.CharField(max_length=255)
+class Planta(models.Model):
+    nome = models.CharField(max_length=255, unique=True)
+    imagem = models.ImageField()
     valor = models.DecimalField(max_digits=10, decimal_places=2)
     origem = models.CharField(max_length=255)
     facilidade = models.CharField(max_length=255)
-    bem_estar = models.CharField(max_length=355)
+    bem_estar = models.CharField(max_length=255)
     texto_base = models.CharField(max_length=255)
+
+class Blog(models.Model):
+    titulo = models.CharField(max_length=80, unique=True)
+    substitulo = models.CharField(max_length=180)
+    texto = models.TextField(unique=True)
