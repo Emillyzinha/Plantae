@@ -9,12 +9,16 @@ import Botao from "../componentes/Botao";
 function ProdutoEscolhido() {
     const location = useLocation();
     let plantaID = location.state.plantaID;
-
     const navigate = useNavigate()
 
     const [img, setImg] = useState('')
     const [nomePlanta, setNomePlanta] = useState('')
     const [valor, setValor] = useState('')
+    const [informacoesPlanta, setInformacoesPlanta] = useState({})
+    const [qtd, setQtd] = useState(1)
+    let encontrado = false
+
+    const carrinhoCompleto = localStorage.getItem('carrinho')
 
     useEffect(() => {
         axios.get('http://127.0.0.1:8000/plantae/plantas/')
@@ -23,6 +27,7 @@ function ProdutoEscolhido() {
                 setImg(planta.imagem)
                 setNomePlanta(planta.nome)
                 setValor(planta.valor)
+                setInformacoesPlanta({ nome: res.data[plantaID].nome, imagem: res.data[plantaID].imagem, valor: res.data[plantaID].valor, qtd: qtd })
             })
             .catch((err) => {
                 alert('Aconteceu um erro inesperado')
@@ -30,12 +35,36 @@ function ProdutoEscolhido() {
     }, [])
 
     const navegarCarrinho = () => {
-        navigate('/carrinho', {
-            state: {
-                idPlanta: plantaID
-            }
-        })
+        let novoItem = true
+        const carrinhoAtual = JSON.parse(localStorage.getItem('carrinho')) || []
+        if (carrinhoAtual.length == 0) {
+            carrinhoAtual.push(informacoesPlanta)
+            localStorage.setItem('carrinho', JSON.stringify(carrinhoAtual))
+            navigate('/carrinho', {
+                state: {
+                    idPlanta: plantaID
+                }
+            })
+        } else {
+            const carrinhoAtualizado = carrinhoAtual.map((item) => {
+                if (item.nome === nomePlanta) {
+                    item.qtd += 1
+                    item.valor *= item.qtd
+                    navigate('/carrinho', {
+                        state: {
+                            idPlanta: plantaID
+                        }
+                    })
+                }
+                return item
+            })
+            localStorage.setItem('carrinho', JSON.stringify(carrinhoAtualizado));
+        }
+        console.log('nao encontrou', carrinhoAtual.length)
+
     }
+
+    console.log('vish', informacoesPlanta);
 
     return (
         <div className="h-screen w-full ">
@@ -46,7 +75,7 @@ function ProdutoEscolhido() {
                         <img src={img} alt="Planta selecionada" className="h-[40vh]" />
                     </div>
                 </div>
-                <p className='text-[2rem] text-center font-extralight p-1 font-titulos'>{nomePlanta}</p>
+                <p className='text-[2rem] text-center font-extralight p-1 py-3 font-titulos'>{nomePlanta}</p>
                 <div className="border-t border-black w-full" />
                 <h3 className="text-[16px] pt-1 text-[#6B665F] font-textos">Entregas para todo o Brasil</h3>
                 <h4 className='text-4xl font-gafata mt-3'>R$ {valor}</h4>

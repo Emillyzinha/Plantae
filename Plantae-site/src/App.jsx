@@ -5,17 +5,18 @@ import Cadastro from './pages/Cadastro'
 import Login from './pages/Login'
 import ProdutoEscolhido from './pages/Produto'
 import Carrinho from './pages/Carrinho'
-
+import { useEffect, useState } from 'react'
+import axios from 'axios'
 
 function App() {
   return (
     <Routes>
-      <Route path='/' element={<Principal/>} />
-      <Route path='/produtos' element={<Produtos/>}/>
-      <Route path='/cadastro' element={<Cadastro/>}/>
-      <Route path='/login' element={<Login/>}/>
-      <Route path='/produtoescolhido' element={<ProdutoEscolhido/>}/>
-      <Route path='/carrinho' element={<Carrinho/>} />
+      <Route path='/' element={<Principal />} />
+      <Route path='/produtos' element={<Produtos />} />
+      <Route path='/cadastro' element={<Cadastro />} />
+      <Route path='/login' element={<Login />} />
+      <Route path='/produtoescolhido' element={<ProdutoEscolhido />} />
+      <Route path='/carrinho' element={<Carrinho />} />
     </Routes>
   )
 }

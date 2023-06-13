@@ -8,7 +8,7 @@ const SecaoProduto = ({ img, nome, valor }) => {
                 <h1 className='font-titulos text-2xl ml-4'>{nome}</h1>
                 <h1 className='font-textos font-semibold text-[20px] ml-4'>{valor}</h1>
                 <div className="w-full flex flex-row items-end h-[8vh]">
-                    <div className="border border-verde-padrao w-[40%] h-[60%] flex flex-row justify-around mx-4">
+                    <div className="border border-verde-padrao w-[40%] h-[60%] flex flex-row justify-around items-center mx-4">
                         <h4 className='font-gafata text-[28px]'>+</h4>
                         <h4 className='font-gafata text-[28px]'>2</h4>
                         <h4 className='font-gafata text-[28px]'>-</h4>
