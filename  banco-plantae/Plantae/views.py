@@ -20,9 +20,9 @@ class ClienteCRUD(viewsets.ModelViewSet):
 class PlantasCRUD(viewsets.ModelViewSet):
     queryset= Planta.objects.all()
     serializer_class = PlantaSerializer
-    permission_classes = (IsAuthenticated, )
+    # permission_classes = (IsAuthenticated, )
 
 class BlogCRUD(viewsets.ModelViewSet):
     queryset= Blog.objects.all()
     serializer_class = BlogSerializer
-    permission_classes = (IsAuthenticated, )
+    # permission_classes = (IsAuthenticated, )

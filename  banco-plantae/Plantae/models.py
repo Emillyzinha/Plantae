@@ -23,15 +23,15 @@ class Cliente(AbstractUser):
     REQUIRED_FIELDS = ["nomeCompleto", "username", 'cpf',  "data_nascimento", "numero_telefone", "password"]
 
 class Planta(models.Model):
-    nome = models.CharField(max_length=255, unique=True)
+    nome = models.CharField(max_length=17, unique=True)
     imagem = models.ImageField()
     valor = models.DecimalField(max_digits=10, decimal_places=2)
     origem = models.CharField(max_length=255)
     facilidade = models.CharField(max_length=255)
     bem_estar = models.CharField(max_length=255)
-    texto_base = models.CharField(max_length=255)
+    texto_base = models.CharField(max_length=150)
 
 class Blog(models.Model):
     titulo = models.CharField(max_length=80, unique=True)
-    substitulo = models.CharField(max_length=180)
+    subtitulo = models.CharField(max_length=180)
     texto = models.TextField(unique=True)
